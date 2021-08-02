@@ -1,0 +1,24 @@
+#总体回测前要做的事情
+def initialize(context):
+    set_params()   
+    set_variables() 
+    set_backtest()   
+
+
+def set_params():
+    g.tc=15  
+    g.yb=63
+    g.N=20   
+    g.factors=["market_cap","roe",'eps','pe_ratio'] 
+    g.weights=[[0.243],[-0.34],[-0.87],[-0.6]]
+    
+
+
+def set_variables():
+    g.t=0              
+    g.if_trade=False   
+    
+    
+def set_backtest():
+    set_option('use_real_price', True)#用真实价格交易
+    log.set_level('order', 'error')
